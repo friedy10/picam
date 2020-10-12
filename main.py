@@ -1,4 +1,5 @@
 #billy is lame
+# Friedrich is cool
 import io
 import picamera
 import logging
