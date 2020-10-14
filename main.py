@@ -15,7 +15,7 @@ PAGE="""\
 </head>
 <body>
 <center style="color:white"><h1>Fun Friday Security Cam</h1></center>
-<center><img src="stream.mjpg" width="640" height="480"></center>
+<center><img src="stream.mjpg" width="1920" height="1080"></center>
 </body>
 </html>
 
