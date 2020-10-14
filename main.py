@@ -15,27 +15,9 @@ PAGE="""\
 </head>
 <body>
 <center style="color:white"><h1>Fun Friday Security Cam</h1></center>
-<center><img src="stream.mjpg" width="640" height="480"></center>
+<center><img src="stream.mjpg" width="1920" height="1080"></center>
 </body>
 </html>
-
-<div data-video="toAdCKXu75E"
-         data-autoplay="1"
-         data-loop="1"
-         id="youtube-audio">
-  </div>
-  <script src="https://www.youtube.com/iframe_api"></script>
-  <script src="https://cdn.rawgit.com/labnol/files/master/yt.js"></script>
-
-<center style="color:white"><h1>Mute Above This</h1></center>
-
-function enableMute() { 
-  data-video.muted = true;
-} 
-
-function disableMute() { 
-  data-video = false;
-} 
 
 """
 
@@ -100,7 +82,7 @@ class StreamingServer(socketserver.ThreadingMixIn, server.HTTPServer):
     allow_reuse_address = True
     daemon_threads = True
 
-with picamera.PiCamera(resolution='640x480', framerate=30) as camera:
+with picamera.PiCamera(resolution='1920x1080', framerate=30) as camera:
     output = StreamingOutput()
     camera.brightness = 55
     #Uncomment the next line to change your Pi's Camera rotation (in degrees)
