@@ -8,15 +8,17 @@ from threading import Condition
 from http import server
 
 PAGE="""\
+<body style="background-color:black;">
 <html>
 <head>
-<title>Raspberry Pi - Surveillance Camera</title>
+<title>Fun Friday Security Cam</title>
 </head>
 <body>
-<center><h1>Raspberry Pi - Surveillance Camera</h1></center>
+<center style="color:white"><h1>Fun Friday Security Cam</h1></center>
 <center><img src="stream.mjpg" width="640" height="480"></center>
 </body>
 </html>
+<p style="color:red">This is a paragraph.</p>
 """
 #comment boiiiiiiiiiii
 class StreamingOutput(object):
