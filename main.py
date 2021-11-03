@@ -6,20 +6,11 @@ import logging
 import socketserver
 from threading import Condition
 from http import server
+import codecs
 
-PAGE="""\
-<body style="background-color:black;">
-<html>
-<head>
-<title>Fun Friday Security Cam</title>
-</head>
-<body>
-<center style="color:white"><h1>Fun Friday Security Cam</h1></center>
-<center><img src="stream.mjpg" width="1920" height="1080"></center>
-</body>
-</html>
 
-"""
+f=codecs.open("index.html", 'r')
+PAGE=f.read()
 
 #comment boiiiiiiiiiii
 class StreamingOutput(object):
