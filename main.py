@@ -50,6 +50,20 @@ class StreamingHandler(server.BaseHTTPRequestHandler):
             self.send_header('Pragma', 'no-cache')
             self.send_header('Content-Type', 'multipart/x-mixed-replace; boundary=FRAME')
             self.end_headers()
+        elif self.path == '/css/styles.css':
+            content = PAGE.encode('utf-8')
+            self.send_response(200)
+            self.send_header('Content-Type', 'text/html')
+            self.send_header('Content-Length', len(content))
+            self.end_headers()
+            self.wfile.write(content)
+        elif self.path == '/js/scripts.js':
+            content = PAGE.encode('utf-8')
+            self.send_response(200)
+            self.send_header('Content-Type', 'text/html')
+            self.send_header('Content-Length', len(content))
+            self.end_headers()
+            self.wfile.write(content)
             try:
                 while True:
                     with output.condition:
@@ -80,7 +94,7 @@ with picamera.PiCamera(resolution='1920x1080', framerate=30) as camera:
     #camera.rotation = 90
     camera.start_recording(output, format='mjpeg')
     try:
-        address = ('10.95.156.184', 7070)
+        address = ('10.95.139.209', 80)
         server = StreamingServer(address, StreamingHandler)
         server.serve_forever()
     finally:
