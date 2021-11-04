@@ -12,6 +12,12 @@ import codecs
 f=codecs.open("index.html", 'r')
 PAGE=f.read()
 
+f=codecs.open("css/styles.css", 'r')
+STYLES=f.read()
+
+f=codecs.open("js/scripts.js", 'r')
+SCRIPTS=f.read()
+
 #comment boiiiiiiiiiii
 class StreamingOutput(object):
     def __init__(self):
@@ -51,14 +57,14 @@ class StreamingHandler(server.BaseHTTPRequestHandler):
             self.send_header('Content-Type', 'multipart/x-mixed-replace; boundary=FRAME')
             self.end_headers()
         elif self.path == '/css/styles.css':
-            content = PAGE.encode('utf-8')
+            content = STYLES.encode('utf-8')
             self.send_response(200)
             self.send_header('Content-Type', 'text/html')
             self.send_header('Content-Length', len(content))
             self.end_headers()
             self.wfile.write(content)
         elif self.path == '/js/scripts.js':
-            content = PAGE.encode('utf-8')
+            content = SCRIPTS.encode('utf-8')
             self.send_response(200)
             self.send_header('Content-Type', 'text/html')
             self.send_header('Content-Length', len(content))
